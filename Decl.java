@@ -41,4 +41,10 @@ public class Decl{
 	public Map<String, Integer> getDeclared(){
 		return list;
 	}
+
+	public void print() {
+		System.out.print("  int ");
+		idlist.print();
+		System.out.println(";");
+	}
 }

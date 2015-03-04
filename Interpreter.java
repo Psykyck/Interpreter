@@ -14,7 +14,7 @@ public class Interpreter {
 	public static void main(String[] args) throws IOException {	
 		if(args.length > 0){
 			MyScanner scanner = new MyScanner(args[0]);
-			scanner.print();
+			scanner.print(); //Print token list
 			System.out.println("\n");
 			if(args.length == 2){
 				File file = new File(args[1]);
@@ -58,6 +58,7 @@ public class Interpreter {
 			
 			Prog program = new Prog();
 			program.parse();
+			program.print();
 		} else {
 			System.out.println("ERROR: Please enter at least one argument");
 			System.exit(0);

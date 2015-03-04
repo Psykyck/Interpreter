@@ -28,4 +28,17 @@ public class Expr {
 		return array;
 	}
 
+	public void print() {
+		term.print();
+		if (expr != null){
+			if(altNo == 1){
+				System.out.print("+");
+			} else {
+				System.out.print("-");
+			}
+			expr.print();
+		}
+		
+	}
+
 }

@@ -37,4 +37,18 @@ public class IDList {
 		ids.clear();
 	}
 
+	public void print() {
+		if(ids.size() == 1){
+			System.out.print(ids.getFirst());
+		} else {
+			for(String id : ids){
+				if(id.equals(ids.getLast())){
+					System.out.print(id);
+				} else {
+					System.out.print(id + ", ");
+				}
+			}
+		}	
+	}
+
 }

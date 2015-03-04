@@ -20,4 +20,12 @@ public class Term {
 		return array;
 	}
 
+	public void print() {
+		factor.print();
+		if (term != null){
+			System.out.print("*");
+			term.print();
+		}
+	}
+
 }

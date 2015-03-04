@@ -17,4 +17,11 @@ public class DeclSeq{
 			decl_seq.parse();
 		}
 	}
+	
+	public void print(){
+		decl.print();
+		if(decl_seq != null){
+			decl_seq.print();
+		}
+	}
 }

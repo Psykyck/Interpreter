@@ -30,4 +30,12 @@ public class Prog{
 			System.exit(0);
 		}
 	}
+	
+	public void print(){
+		System.out.println("program");
+		decl_seq.print();
+		System.out.println("begin");
+		stmt_seq.print();
+		System.out.println("end");
+	}
 }

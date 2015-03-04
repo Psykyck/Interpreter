@@ -37,4 +37,13 @@ public class Loop {
 		
 	}
 
+	public void print() {
+		System.out.println("  do");
+		System.out.print("  ");
+		stmtseq.print();
+		System.out.print("  while ");
+		cond.print();
+		System.out.println(" enddo;");
+	}
+
 }

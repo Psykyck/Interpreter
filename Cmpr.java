@@ -30,4 +30,13 @@ public class Cmpr {
 		MyScanner.nextToken();
 	}
 
+	public void print() {
+		System.out.print("[");
+		expr1.print();
+		cmprop.print();
+		expr2.print();
+		System.out.print("]");
+		
+	}
+
 }

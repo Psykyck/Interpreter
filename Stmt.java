@@ -51,4 +51,21 @@ public class Stmt {
 		}
 	}
 
+	public void print() {
+		if(altNo == 1){
+			s1.print();
+		} else if (altNo == 2){
+			s2.print();
+		} else if (altNo == 3){
+			s3.print();
+		} else if (altNo == 4){
+			s4.print();
+		} else if (altNo == 5){
+			s5.print();
+		} else {
+			s6.print();
+		}
+		
+	}
+
 }

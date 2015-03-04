@@ -38,4 +38,10 @@ public class Input {
 		
 	}
 
+	public void print() {
+		System.out.print("  input ");
+		idlist.print();
+		System.out.println(";");
+	}
+
 }

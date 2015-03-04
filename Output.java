@@ -23,4 +23,10 @@ public class Output {
 		
 	}
 
+	public void print() {
+		System.out.print("  output ");
+		idlist.print();
+		System.out.println(";");
+	}
+
 }

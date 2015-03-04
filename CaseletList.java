@@ -16,8 +16,14 @@ public class CaseletList {
 			MyScanner.nextToken(); //<caselet-list>
 			caseletlist = new CaseletList();
 			caseletlist.parse();
-		} else {
-			MyScanner.nextToken();
+		}
+	}
+
+	public void print() {
+		caselet.print();
+		if (caseletlist != null){
+			System.out.print("\n  | ");
+			caseletlist.print();
 		}
 	}
 

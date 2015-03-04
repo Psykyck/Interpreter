@@ -3,10 +3,14 @@ package interpreter;
 public class Case {
 	private CaseletList caseletlist;
 	private Expr expr;
+	private String var;
+	private Decl declList;
 	
 	Case(){
 		caseletlist = null;
 		expr = null;
+		var = null;
+		declList = new Decl();
 	}
 	
 	public void parse() {
@@ -15,7 +19,20 @@ public class Case {
 			System.exit(0);
 		}
 		MyScanner.nextToken(); //ID
-		if(!MyScanner.currentToken().substring(0,2).equals("ID")){
+		if(MyScanner.currentToken().substring(0,2).equals("ID")){
+			StringBuilder id = new StringBuilder();
+			int x = 3;
+			char c;
+			while((c = MyScanner.currentToken().charAt(x)) != ']'){
+				id.append(c);
+				x++;
+			}
+			var = id.toString();
+			if(declList.getDeclared().get(var) == null){
+				System.out.println("ERROR: ID[" + var + "] cannot be used without an assigned value");
+				System.exit(0);
+			}
+		} else {
 			System.out.println("ERROR: Expexcted ID after beginning of CASE block");
 			System.exit(0);
 		}
@@ -45,6 +62,15 @@ public class Case {
 		}
 		MyScanner.nextToken();
 		
+	}
+
+	public void print() {
+		System.out.println("  case " + var + " of");
+		System.out.print("    ");
+		caseletlist.print();
+		System.out.print("\n    else ");
+		expr.print();
+		System.out.println("\n  end;");
 	}
 
 }

@@ -19,4 +19,10 @@ public class StmtSeq {
 		
 	}
 
+	public void print() {
+		stmt.print();
+		if(stmtseq != null){
+			stmtseq.print();
+		}
+	}
 }

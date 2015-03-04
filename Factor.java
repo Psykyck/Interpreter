@@ -6,12 +6,16 @@ public class Factor {
 	private Expr expr;
 	private int altNo;
 	private Decl declList;
+	private Integer constant;
+	private String var;
 	
 	Factor(){
 		factor = null;
 		expr = null;
 		altNo = 0;
 		declList = new Decl();
+		constant = null;
+		var = null;
 	}
 	
 	public int[] parse() {
@@ -27,6 +31,7 @@ public class Factor {
 				x++;
 			}
 			array[1] = Integer.parseInt(num.toString());
+			constant = Integer.parseInt(num.toString());
 			MyScanner.nextToken();
 		} else if (MyScanner.currentToken().substring(0, 2).equals("ID")){
 			altNo = 2;
@@ -37,16 +42,17 @@ public class Factor {
 				id.append(c);
 				x++;
 			}
-			if(!(declList.getDeclared()).containsKey(id.toString())){
-				System.out.println("ERROR: Cannot assign undeclared ID[" + id + "]");
+			var = id.toString();
+			if(!(declList.getDeclared()).containsKey(var)){
+				System.out.println("ERROR: Cannot assign undeclared ID[" + var + "]");
 				System.exit(0);
 			}
-			if(declList.getDeclared().get(id.toString()) == null){
-				System.out.println("ERROR: ID[" + id + "] cannot be used without an assigned value");
+			if(declList.getDeclared().get(var) == null){
+				System.out.println("ERROR: ID[" + var + "] cannot be used without an assigned value");
 				System.exit(0);
 			} else {
 				array[0] = 1;
-				array[1] = declList.getDeclared().get(id.toString());
+				array[1] = declList.getDeclared().get(var);
 			}
 			MyScanner.nextToken();
 		} else if (MyScanner.currentToken().equals("MINUS")){
@@ -69,6 +75,22 @@ public class Factor {
 			System.exit(0);
 		}
 		return array;
+	}
+
+	public void print() {
+		if (altNo == 1){
+			System.out.print(constant);
+		} else if (altNo == 2){
+			System.out.print(var);
+		} else if (altNo == 3){
+			System.out.print("-");
+			factor.print();
+		} else {
+			System.out.print("(");
+			expr.print();
+			System.out.print(")");
+		}
+		
 	}
 
 }

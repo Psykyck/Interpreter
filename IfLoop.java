@@ -42,4 +42,19 @@ public class IfLoop {
 		}
 		MyScanner.nextToken();	
 	}
+
+	public void print() {
+		System.out.print("  if ");
+		cond.print();
+		System.out.println(" then");
+		System.out.print("  ");
+		stmtseq1.print();
+		if (stmtseq2 != null){
+			System.out.println("  else");
+			System.out.print("  ");
+			stmtseq2.print();
+		}
+		System.out.println("  endif;");
+		
+	}
 }

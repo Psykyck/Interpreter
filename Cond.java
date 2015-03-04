@@ -51,4 +51,24 @@ public class Cond {
 		
 	}
 
+	public void print() {
+		if (altNo == 1){
+			cmpr.print();
+		} else if (altNo == 2){
+			System.out.print("!");
+			cond1.print();
+		} else {
+			System.out.print("(");
+			cond1.print();
+			if (altNo == 3) {
+				System.out.print(" && ");
+			} else {
+				System.out.print(" || ");
+			}
+			cond2.print();
+			System.out.print(")");
+		}
+		
+	}
+
 }

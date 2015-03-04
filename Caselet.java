@@ -19,7 +19,12 @@ public class Caselet {
 		MyScanner.nextToken(); // <expr>
 		expr = new Expr();
 		expr.parse();
-		
+	}
+
+	public void print() {
+		intlist.print();
+		System.out.print(" : ");
+		expr.print();
 	}
 
 }

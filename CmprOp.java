@@ -28,4 +28,20 @@ public class CmprOp {
 		MyScanner.nextToken();
 	}
 
+	public void print() {
+		if (altNo == 1){
+			System.out.print("<");
+		} else if (altNo == 2){
+			System.out.print("=");
+		} else if (altNo == 3){
+			System.out.print("!=");
+		} else if (altNo == 4){
+			System.out.print(">");
+		} else if (altNo == 5){
+			System.out.print(">=");
+		} else {
+			System.out.print("<=");
+		}
+	}
+
 }
